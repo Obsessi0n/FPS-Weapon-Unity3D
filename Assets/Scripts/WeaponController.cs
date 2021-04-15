@@ -5,6 +5,18 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     [SerializeField]
+    GameObject m4a1Prefab;
+
+    bool weHaveWeapon = true;
+
+    [SerializeField]
+    float dropForce = 400f;
+
+    [SerializeField]
+    GameObject ourM4a1;
+
+
+    [SerializeField]
     GameObject bulletPrefab;
 
     [SerializeField]
@@ -107,7 +119,32 @@ public class WeaponController : MonoBehaviour
             if(totalAmmo > 0)
                 Reload();
         }
+
+        if (Input.GetKeyDown(KeyCode.G) && weHaveWeapon)
+        {
+            DropWeapon();
+        }
         
+
+    }
+
+    void DropWeapon()
+    {
+        GameObject weaponDropped = Instantiate(m4a1Prefab, ourM4a1.transform);
+        weaponDropped.transform.SetParent(null);
+        weaponDropped.transform.localScale = new Vector3(10, 10, 10);
+        weaponDropped.GetComponent<Rigidbody>().AddForce(transform.forward * dropForce);
+
+        canShoot = false;
+        hasAmmo = false;
+
+        totalAmmo = -1;
+        bulletsInMagazine = -1;
+
+        magazineCapacity = 0;
+
+        weHaveWeapon = false;
+        ourM4a1.SetActive(false);
 
     }
 

@@ -11,7 +11,9 @@ public class UIController : MonoBehaviour
 
     public void updateAmmo(int ammoInMagazine, int totalAmmo)
     {
-
-        ammoText.text = (ammoInMagazine + "/" + totalAmmo);
+        if (ammoInMagazine == -1 && totalAmmo == -1)
+            ammoText.text = ("NA");
+        else
+            ammoText.text = (ammoInMagazine + "/" + totalAmmo);
     }
 }

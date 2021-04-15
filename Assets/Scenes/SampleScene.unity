@@ -492,6 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 511244317}
+  - component: {fileID: 511244318}
   m_Layer: 0
   m_Name: PlayerHands
   m_TagString: Untagged
@@ -514,6 +515,44 @@ Transform:
   m_Father: {fileID: 1834967915}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &511244318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511244316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc83d4015489ae47bfc4f8efd04e2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m4a1Prefab: {fileID: 4941461377916453855, guid: f1cb3753875090948b3dd9b226cc68be, type: 3}
+  dropForce: 400
+  ourM4a1: {fileID: 842777493}
+  bulletPrefab: {fileID: 8595033036183966715, guid: 0b2aa333cdd7e214b99cde6f649f7b88, type: 3}
+  bulletSpawnPoint: {fileID: 845076579}
+  magazineCapacity: 30
+  totalAmmo: 5
+  fireRateDelay: 0.1
+  reloadTime: 2
+  automaticReload: 1
+  automaticWeapon: 1
+  mainCamera: {fileID: 963194227}
+  concreteDecals:
+  - {fileID: 21300000, guid: d9bbfd8c093eef14387aab44b8adf84b, type: 3}
+  - {fileID: 21300000, guid: 1ede373d98f6ffe44966b81e76940dfd, type: 3}
+  - {fileID: 21300000, guid: 4ee8487ae577dc946a08e992ba1955c2, type: 3}
+  - {fileID: 21300000, guid: 6f6b5651edad64340a15ab6a1e249abc, type: 3}
+  - {fileID: 21300000, guid: 8a5ff2a05c82939469df59213ebd36a4, type: 3}
+  bulletHolePrefab: {fileID: 8562287462330109541, guid: adb00f4708245724b8c7c1ca24f4cbaf, type: 3}
+  impactParticlePrefab: {fileID: 4215109472307795790, guid: 40a6178e89579ba4fa337e49d51002fb, type: 3}
+  muzzleFlash: {fileID: 476253339}
+  shootSound: {fileID: 1992310279}
+  uiController: {fileID: 1773446767}
+  recoilXOffset: 4
+  recoilYOffset: 4
+  InvertY: 0
 --- !u!1 &668001592
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,41 +833,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b2659cbd1ed41654d8bbf0acef4f1f32, type: 3}
   m_PrefabInstance: {fileID: 2072442700}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &842777495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 842777493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc83d4015489ae47bfc4f8efd04e2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8595033036183966715, guid: 0b2aa333cdd7e214b99cde6f649f7b88, type: 3}
-  bulletSpawnPoint: {fileID: 845076579}
-  magazineCapacity: 30
-  totalAmmo: 5
-  fireRateDelay: 0.1
-  reloadTime: 2
-  automaticReload: 1
-  automaticWeapon: 1
-  mainCamera: {fileID: 963194227}
-  concreteDecals:
-  - {fileID: 21300000, guid: d9bbfd8c093eef14387aab44b8adf84b, type: 3}
-  - {fileID: 21300000, guid: 1ede373d98f6ffe44966b81e76940dfd, type: 3}
-  - {fileID: 21300000, guid: 4ee8487ae577dc946a08e992ba1955c2, type: 3}
-  - {fileID: 21300000, guid: 6f6b5651edad64340a15ab6a1e249abc, type: 3}
-  - {fileID: 21300000, guid: 8a5ff2a05c82939469df59213ebd36a4, type: 3}
-  bulletHolePrefab: {fileID: 8562287462330109541, guid: adb00f4708245724b8c7c1ca24f4cbaf, type: 3}
-  impactParticlePrefab: {fileID: 4215109472307795790, guid: 40a6178e89579ba4fa337e49d51002fb, type: 3}
-  muzzleFlash: {fileID: 476253339}
-  shootSound: {fileID: 1992310279}
-  uiController: {fileID: 1773446767}
-  recoilXOffset: 4
-  recoilYOffset: 4
-  InvertY: 0
 --- !u!1 &845076578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,7 +1400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1596705049
 GameObject:
@@ -2207,7 +2211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8595033036183966692, guid: 0b2aa333cdd7e214b99cde6f649f7b88, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8595033036183966692, guid: 0b2aa333cdd7e214b99cde6f649f7b88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
